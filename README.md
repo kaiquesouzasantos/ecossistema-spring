@@ -13,7 +13,7 @@
 - Spring Cloud;
 - Lombok;
 - Maven e DAO;
-- JPA com Hibernate;
+- JPA com Hibernate.
 
 #
 ### TECNOLOGIAS
