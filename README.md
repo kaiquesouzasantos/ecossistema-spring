@@ -18,9 +18,9 @@
 - Spring: Boot, Web, Security, Data, Cloud;
 - Lombok e Thymeleaf;
 - Maven e DAO;
-- Perisitencia de Dados;
+- Persitencia de Dados;
 - Injeção de Dependencias e Objetos;
-- Integração com o SGBD PostGreSQL.
+- Integração com o SGBD PostgreSQL.
 
 #
 ### TECNOLOGIAS
