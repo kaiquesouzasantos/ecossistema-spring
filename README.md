@@ -17,6 +17,7 @@
 - *Spring-Security*:
   - https://www.youtube.com/watch?v=aGbXsl9tzVg&t
 - *Criptografia-Spring-Security*:
+  - https://www.youtube.com/watch?v=YgfO8EHLAEc&list=PLTN1gMq8EHuIvkz0ZdFSufK-eI0FrnkvI
   - https://www.youtube.com/playlist?list=PLTN1gMq8EHuIpxyecEp04TvLr3TQbzMRL  
 #
 ### CONTEUDO ABORDADO
