@@ -13,7 +13,7 @@
 #
 ### CURSOS
 
-- *Spring-Thymeleaf*: 
+- *Thymeleaf-Spring*: 
   - https://youtube.com/playlist?list=PLXjt2Adje6u5aZvafdp4vpF7v3Z8mdcuE
 - *Spring-Security*:
   - https://www.youtube.com/watch?v=aGbXsl9tzVg&t
