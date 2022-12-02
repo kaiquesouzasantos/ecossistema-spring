@@ -7,7 +7,7 @@
 #
 ### SOBRE
 
-- Diretório contendo desenvolvimento de projetos em Spring Boot com o intuito de práticar e consolidar o conhecimento objetivando o dominio do framework.
+- Diretório contendo desenvolvimento de projetos em Spring Boot, com o intuito de práticar e consolidar o conhecimento, objetivando o dominio do framework.
 - Além de obter o contexto do curso, grande parte das aplicações desenvolvidas possuem alterações na codificação, arquitetura e funcionamento, baseadas em conhecimentos anteriores, objetivando melhores praticas. 
 
 #
