@@ -20,16 +20,6 @@
 - *Criptografia-Spring-Security*:
   - https://www.youtube.com/watch?v=YgfO8EHLAEc&list=PLTN1gMq8EHuIvkz0ZdFSufK-eI0FrnkvI
   - https://www.youtube.com/playlist?list=PLTN1gMq8EHuIpxyecEp04TvLr3TQbzMRL  
-#
-### CONTEUDO ABORDADO
-
-- Spring: Boot, Web, Security, Data, Cloud;
-- Lombok e Thymeleaf;
-- Maven e Gradle;
-- Persitencia de Dados e Data Acess Object;
-- Injeção de Dependencias e Objetos;
-- JWT e Autenticação;
-- Integração com o SGBD PostgreSQL.
 
 #
 ### TECNOLOGIAS
@@ -37,4 +27,8 @@
 - [Java](https://docs.oracle.com/en/java)
 - [Spring](https://docs.spring.io/spring-framework/docs/current/reference/html/)
 - [Spring Boot](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
+- [Spring Web]()
+- [Spring Data]()
+- [Spring Security]()
 - [JWT]()
+- [PostgreSQL]()
