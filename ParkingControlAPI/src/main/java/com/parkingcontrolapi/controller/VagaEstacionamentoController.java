@@ -5,18 +5,14 @@ import com.parkingcontrolapi.model.VagaEstacionamento;
 import com.parkingcontrolapi.service.VagaEstacionamentoService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.Optional;
-import java.util.UUID;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.data.domain.*;
+import org.springframework.http.*;
+import java.time.*;
+import java.util.*;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -24,13 +20,16 @@ import java.util.UUID;
 public class VagaEstacionamentoController {
     @Autowired private VagaEstacionamentoService vagaEstacionamentoService;
 
+    @PreAuthorize("hasAnyRole('FUNCAO_ADMIN', 'FUNCAO_USER')")
+    // @PreAuthorize -> Autorização, ou seja, define o nivel de permisão
     @GetMapping("/list")
     public ResponseEntity<Page<VagaEstacionamento>> getAllVagaEstacionamento(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable){
         // Pageable -> paginacao de elemento, contendo os elementos e informações de sumarização e contextualização
         // @PageableDefault(parametroKey = valor) -> podem ser passados pela URL, sendo uma sobreposição de valores default na paginação
         return ResponseEntity.status(HttpStatus.OK).body(vagaEstacionamentoService.findAll(pageable));
     }
-
+    
+    @PreAuthorize("hasAnyRole('FUNCAO_ADMIN', 'FUNCAO_USER')")
     @GetMapping("/{id}")
     public ResponseEntity<Object> getVagaEstacionamentoById(@PathVariable("id") UUID id){
         Optional<VagaEstacionamento> vaga = vagaEstacionamentoService.findById(id);
@@ -42,6 +41,7 @@ public class VagaEstacionamentoController {
         return ResponseEntity.status(HttpStatus.OK).body(vaga.get());
     }
 
+    @PreAuthorize("hasAnyRole('FUNCAO_ADMIN')")
     @PostMapping("/add")
     public ResponseEntity<Object> addVagaEstacionamento(@RequestBody @Valid VagaEstacionamentoDTO vagaEstacionamentoDTO){
         if(vagaEstacionamentoService.existsByNumero(vagaEstacionamentoDTO.getNumero())){
@@ -65,6 +65,7 @@ public class VagaEstacionamentoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(vagaEstacionamentoService.save(vagaEstacionamento));
     }
 
+    @PreAuthorize("hasRole('FUNCAO_ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<Object> editVagaEstacionamento(@PathVariable("id") UUID id, @RequestBody @Valid VagaEstacionamentoDTO vagaEstacionamentoDTO){
         Optional<VagaEstacionamento> vagaEstacionamentoExistente = vagaEstacionamentoService.findById(id);
@@ -82,6 +83,7 @@ public class VagaEstacionamentoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(vagaEstacionamentoService.save(vagaEstacionamento));
     }
 
+    @PreAuthorize("hasRole('FUNCAO_ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteVagaEstacionamento(@PathVariable("id") UUID id){
         Optional<VagaEstacionamento> vaga = vagaEstacionamentoService.findById(id);

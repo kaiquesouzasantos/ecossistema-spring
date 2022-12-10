@@ -44,5 +44,4 @@ public class VagaEstacionamentoService {
     public Page<VagaEstacionamento> findAll(Pageable pageable){
         return vagaEstacionamentoRepository.findAll(pageable);
     }
-
 }
