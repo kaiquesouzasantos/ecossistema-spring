@@ -20,7 +20,7 @@ public class UsuarioService implements UserDetailsService {
         Usuario usuario = usuarioRepository
                 .findByNome(nome)
                 .orElseThrow(() -> new UsernameNotFoundException("USUARIO COM ESSE NOME NAO FOI ENCONTRADO"));
-        // User ->
+        // User -> construção de UserDetails, recebe no construtor [name, password, enabled, accountNonExpired, credencialNonExpired, accountNonLocked, authorities]
         return new User(usuario.getUsername(), usuario.getPassword(), true, true, true, true, usuario.getFuncoes());
     }
 }
