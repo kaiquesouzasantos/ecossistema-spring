@@ -15,8 +15,6 @@
 
 - *Thymeleaf-Spring*: 
   - https://youtube.com/playlist?list=PLXjt2Adje6u5aZvafdp4vpF7v3Z8mdcuE
-- *Spring-Security*:
-  - https://www.youtube.com/watch?v=aGbXsl9tzVg&t
 - *Parking-Control-API*:
   - https://www.youtube.com/watch?v=LXRU-Z36GEU
   - https://www.youtube.com/watch?v=t6prPki7daU
