@@ -1,7 +1,7 @@
 package com.example.criptografiaspringsecurity.controller;
 
 import com.example.criptografiaspringsecurity.model.UsuarioModel;
-import com.example.criptografiaspringsecurity.repository.UsuarioRepository;
+import com.example.criptografiaspringsecurity.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,13 +14,13 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/usuario")
 public class UsuarioController {
-    @Autowired private UsuarioRepository repository;
+    @Autowired private UsuarioService service;
     // PasswordEncoder -> classe que permite a criptografia de uma informação, atravaes do metodo enconde()
     @Autowired private PasswordEncoder encoder;
 
     @GetMapping("/listar")
     public ResponseEntity<List<UsuarioModel>> listarTodos() {
-        return  ResponseEntity.ok(repository.findAll());
+        return  ResponseEntity.ok(service.findAll());
     }
 
     @PostMapping("/salvar")
@@ -30,12 +30,12 @@ public class UsuarioController {
                 encoder.encode(usuarioModel.getPassword())
         );
         // uma mesma string apos o encode obtem resultados diferentes.
-        return ResponseEntity.ok(repository.save(usuarioModel));
+        return ResponseEntity.ok(service.save(usuarioModel));
     }
 
     @GetMapping("/validar-senha")
     public ResponseEntity<Boolean> validarSenha(@RequestParam String login, @RequestParam String password){
-        Optional<UsuarioModel> usuario = repository.findByLogin(login);
+        Optional<UsuarioModel> usuario = service.findByLogin(login);
         boolean senhaValida = false;
 
         if(usuario.isPresent()){

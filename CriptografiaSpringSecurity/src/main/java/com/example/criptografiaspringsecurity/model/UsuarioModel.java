@@ -1,18 +1,14 @@
 package com.example.criptografiaspringsecurity.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.Id;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "Usuario")
 public class UsuarioModel {
-    @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -20,5 +16,6 @@ public class UsuarioModel {
     @Column(unique = true)
     private String login;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 }

@@ -22,7 +22,6 @@ public class JWTValidacao extends BasicAuthenticationFilter {
         super(authenticationManager);
     }
 
-    @Override
     protected void doFilterInternal(
             HttpServletRequest request,
             HttpServletResponse response,

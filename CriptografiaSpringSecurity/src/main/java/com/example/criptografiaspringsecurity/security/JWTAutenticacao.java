@@ -22,10 +22,14 @@ import java.util.Date;
 public class JWTAutenticacao extends UsernamePasswordAuthenticationFilter {
     public static final int TOKEN_EXPIRACAO = 600_000;
     public static final String TOKEN_SENHA = "23e2dd6a-6e6d-11ed-a1eb-0242ac120002";
-    private AuthenticationManager authenticationManager;
+    private final AuthenticationManager authenticationManager;
+
+    public JWTAutenticacao(AuthenticationManager authenticationManager) {
+        this.authenticationManager = authenticationManager;
+    }
 
     // realiza a autenticacao das informacoes de acesso
-    @Override
+
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
         try {
             UsuarioModel usuario = new ObjectMapper()
@@ -42,8 +46,7 @@ public class JWTAutenticacao extends UsernamePasswordAuthenticationFilter {
     }
 
     // funciona como uma factory de token JWT
-    @Override
-    protected void successfulAuthentication(
+    protected void successfulAuthentication (
             HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication
     ) throws IOException, ServletException {
         UsuarioData usuarioData = (UsuarioData) authentication.getPrincipal();
