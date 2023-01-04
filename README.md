@@ -13,6 +13,8 @@
 #
 ### CURSOS
 
+- *Spring-Security-API-Simples*: 
+  - www.youtube.com/watch?v=pkIEV2Yls_8
 - *Thymeleaf-Spring*: 
   - https://youtube.com/playlist?list=PLXjt2Adje6u5aZvafdp4vpF7v3Z8mdcuE
 - *Parking-Control-API*:
