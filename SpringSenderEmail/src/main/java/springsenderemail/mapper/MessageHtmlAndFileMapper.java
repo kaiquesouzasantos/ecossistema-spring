@@ -22,15 +22,15 @@ public class MessageHtmlAndFileMapper {
 
         objetoAuxiliar.addAttachment(
                 objetoEntrada.getMultipart().getOriginalFilename(),
-                convertMultipartToFile(objetoEntrada.getMultipart(), objetoEntrada.getMultipart().getOriginalFilename())
+                convertMultipartToFile(objetoEntrada.getMultipart())
         );
 
         return objetoSaida;
     }
 
-    private File convertMultipartToFile(MultipartFile multipartFile, String fileName) {
+    private File convertMultipartToFile(MultipartFile multipartFile) {
         try {
-            File file = new File(System.getProperty("java.io.tmpdir") + "/" + fileName);
+            File file = new File(System.getProperty("java.io.tmpdir") + "/" + multipartFile.getOriginalFilename());
             multipartFile.transferTo(file);
             return file;
         } catch (IOException ignored) {
