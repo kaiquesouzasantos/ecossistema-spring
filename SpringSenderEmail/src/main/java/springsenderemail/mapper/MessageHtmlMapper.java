@@ -13,7 +13,7 @@ public class MessageHtmlMapper {
 
         objetoAuxiliar.setTo(objetoEntrada.getTo());
         objetoAuxiliar.setSubject(objetoEntrada.getSubject());
-        objetoAuxiliar.setText(objetoEntrada.getText());
+        objetoAuxiliar.setText(objetoEntrada.getText(), true); // -> content, <boolean_is_html?>
 
         return objetoSaida;
     }

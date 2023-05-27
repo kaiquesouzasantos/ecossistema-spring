@@ -22,4 +22,10 @@ public class EmailController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(messageService.sendText(message));
     }
+
+    @PostMapping(value = "/send/multipart", consumes = "multipart/form-data")
+    public ResponseEntity<String> sendMultipart(@ModelAttribute @Valid MessageDTO message) throws MessagingException {
+        messageService.sendMultipartFile(message);
+        return ResponseEntity.status(HttpStatus.CREATED).body("ENVIADO COM SUCESSO");
+    }
 }
