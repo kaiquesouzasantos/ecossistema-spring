@@ -1,0 +1,75 @@
+<server>/graphiql -> interface
+
+mutation {
+  addCategory(category: {name: "teste"}) {
+    id
+    name
+  }
+}
+
+{
+  "data": {
+    "addCategory": {
+      "id": "9295d575-ce38-4336-b655-ee5035d8d9da",
+      "name": "teste"
+    }
+  }
+}
+
+query {
+  categoryById(id: "9295d575-ce38-4336-b655-ee5035d8d9da") {
+    name
+  }
+}
+
+{
+  "data": {
+    "categoryById": {
+      "name": "teste"
+    }
+  }
+}
+
+mutation {
+  addProduct(product:{
+    name: "teste", price: 3.1, categoryId: "9295d575-ce38-4336-b655-ee5035d8d9da"
+  }) {
+    id
+  }
+}
+
+{
+  "data": {
+    "addProduct": {
+      "id": "9cc844bb-726e-43f3-ba64-ed68a9d0519c"
+    }
+  }
+}
+
+query {
+  products {
+    id
+    name
+    price
+    category {
+      id
+      name
+    }
+  }
+}
+
+{
+  "data": {
+    "products": [
+      {
+        "id": "9cc844bb-726e-43f3-ba64-ed68a9d0519c",
+        "name": "teste",
+        "price": 3.1,
+        "category": {
+          "id": "9295d575-ce38-4336-b655-ee5035d8d9da",
+          "name": "teste"
+        }
+      }
+    ]
+  }
+}

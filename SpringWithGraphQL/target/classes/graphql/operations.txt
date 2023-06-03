@@ -1,0 +1,22 @@
+mutation {
+  addCategory(category: {name: "teste"}) {
+    id
+    name
+  }
+}
+
+query {
+  categoryById(id: "2311ca0d-b32c-42bd-92ab-40420d228b42") {
+    name
+  }
+}
+
+->
+
+{
+  "data": {
+    "categoryById": {
+      "name": "teste1"
+    }
+  }
+}
